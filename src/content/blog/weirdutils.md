@@ -1,5 +1,5 @@
 ---
-title: 'Weird Utils: Advanced SkyBlock Malware'
+title: "Weird Utils: Advanced SkyBlock Malware"
 author: MMPA Administration Team
 pubDatetime: 2023-08-22T16:02:58.844Z
 postSlug: weirdutils
@@ -12,15 +12,16 @@ description: "What's a lets encrypt? Let's figure it out together.."
 
 # WeirdUtils
 
-WeirdUtils is a family of advanced malware mainly targetting players of [Hypixel's SkyBlock gamemode](https://wiki.hypixel.net/Introduction) (**THAT DOES NOT MEAN ITS *ONLY* TARGETING SKYBLOCK**). As *many* people have installed files infected with WeirdUtils over the span of two years. At the time of this blog post's release, WeirdUtils is not detected by major antiviruses. The known mods are impersonating both open and closed source projects, and adding malware.
+WeirdUtils is a family of advanced malware mainly targetting players of [Hypixel's SkyBlock gamemode](https://wiki.hypixel.net/Introduction) (**THAT DOES NOT MEAN ITS _ONLY_ TARGETING SKYBLOCK**). As _many_ people have installed files infected with WeirdUtils over the span of two years. At the time of this blog post's release, WeirdUtils is not detected by major antiviruses. The known mods are impersonating both open and closed source projects, and adding malware.
 
-*Documentation in progress, nothing is finalised*
+_Documentation in progress, nothing is finalised_
 
 # For users
 
 ## TL;DR
 
 We have found mods that use a multi-stage process to infect users with WeirdUtils. First, an encrypted Pastebin file is loaded. This is decrypted into a url used to download a JAR file that, when decrypted (twice) contains code to steal passwords/tokens from the following sources:
+
 - Google Chrome
 - Opera
 - Discord Stable
@@ -44,54 +45,55 @@ Make sure the malware is completely removed from your system, after submitting t
 Change the passwords for all of these accounts, along with any other accounts using the same or similar passwords.
 
 # Timeline of Events
+
 All times listed below are in GMT.
 
 ### Saturday, August 19th
 
-***17:56***
+**_17:56_**
 TirelessTraveler discovers the WeirdUtils malware family.
 
-***20:29***
-TirelessTraveler sends a private message to Heather about WeirdUtils. TirelessTraveler also sends a [message](https://ptb.discord.com/channels/1115852272245686334/1116452145068257392/1142550877027176648) in the #general channel of MMPA's  [Discord server](https://discord.gg/NTUj5VNUsU).
+**_20:29_**
+TirelessTraveler sends a private message to Heather about WeirdUtils. TirelessTraveler also sends a [message](https://ptb.discord.com/channels/1115852272245686334/1116452145068257392/1142550877027176648) in the #general channel of MMPA's [Discord server](https://discord.gg/NTUj5VNUsU).
 
-***21:00***
+**_21:00_**
 Heather begins an investigation into how WeirdUtils functions.
 
-***21:23***
+**_21:23_**
 The Pastebin URL that WeirdUtils grabs from is decrypted. Investigation into the contents begins.
 
-***21:40***
+**_21:40_**
 Heather fully decrypts and decompiles WeirdUtils' payload. The findings are reported to TirelessTraveler.
 
-***21:49***
+**_21:49_**
 A thread titled "WeirdUtils" is created in the internal #malware-discussion Discord forum with TirelessTraveler present.
 
-***21:51***
+**_21:51_**
 Eva sends a private message to Heather, redirecting all future findings to the forum thread.
 
-***22:15***
+**_22:15_**
 Representatives for both Curseforge and Modrinth are pinged in the thread, with hopes of removing any samples that may be present on their websites. Luckily, we were unable to find any instances of WeirdUtils on either platform.
 
-***22:17***
+**_22:17_**
 A HackMD page is created to document all information. This later turned into the blog post you are now reading.
 
-***22:51***
+**_22:51_**
 IMS reports the accounts of both malware developers to GitHub and the paste to PasteBin.
 
 ### Sunday, August 20th
 
-***13:58***
-Eva sends an [email](https://media.discordapp.net/attachments/1142575996034371738/1142820109828759632/image.png?width=1440&height=548) to Pastebin admins about the malicious paste. Taking down the pastebin would immobilize the malware, at least until the malware developers update. 
+**_13:58_**
+Eva sends an [email](https://media.discordapp.net/attachments/1142575996034371738/1142820109828759632/image.png?width=1440&height=548) to Pastebin admins about the malicious paste. Taking down the pastebin would immobilize the malware, at least until the malware developers update.
 
-***14:08***
+**_14:08_**
 Pastebin admins [delete](https://media.discordapp.net/attachments/1142575996034371738/1142824309417582694/image.png?width=1440&height=181) the malicious paste.
 
-***19:58***
+**_19:58_**
 Eva finishes coding UtilsDetector.
 
 ### Tuesday, August 22nd
 
-***~14:38***
+**_~14:38_**
 IMS was notified both of the GitHub pages were taken down.
 
 # Technical Details
@@ -121,7 +123,7 @@ This method then does the following things;
 - Collect Chrome passwords at the default paths of Chrome for Windows
 - Collect Opera passwords at the default paths of Opera for Windows
 - Collect your operating system name
-- Collect your Minecraft session tokens and UUID 
+- Collect your Minecraft session tokens and UUID
 
 All of this information is sent to `https://owouwu.tk`.
 
@@ -153,13 +155,12 @@ If you know anything about WeirdUtils or want to contact us for general concerns
 
 # Bloopers
 
-
 - "can we make a uptime status for your internet" - eva
 - "i am going to triangulate your exact location by knowing when your power cuts off" - eva
-- ![Every pc is a donor pc](https://cdn.discordapp.com/attachments/1116509347984441445/1143038088692645918/image.png)
+- ![Every pc is a donor pc](/reports/weirdutils-1.png)
 - We cookin - Col-E
 - @Col-E just forcepushed, feeling good - eva
 - I'm not a War Thunder player - Col-E
 - You're gonna get a CLI and you're gonna like it ✊ 💢 - Col-E
 - whats a yara? - Heather
-- ![built the wrong repo](https://cdn.discordapp.com/attachments/1142575996034371738/1143550187260891186/image.png) - eva
+- ![built the wrong repo](/reports/weirdutils-2.png) - eva

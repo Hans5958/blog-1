@@ -1,5 +1,5 @@
 ---
-title: 'Bleeding Pipe: A RCE vulnerability exploited in the wild'
+title: "Bleeding Pipe: A RCE vulnerability exploited in the wild"
 author: MMPA Administration Team
 pubDatetime: 2023-07-29T18:21:32.743Z
 postSlug: bleeding-pipe
@@ -11,7 +11,7 @@ tags:
 description: A new vulnerability in LogisticsPipes and other mods allowing RCE on clients and servers.
 ---
 
-*This article will be updated with more information as it develops.*
+_This article will be updated with more information as it develops._
 
 ## We recommend that you take this seriously.
 
@@ -38,6 +38,7 @@ The known affected mods include, but are not limited to:
 - [Gadomancy](https://legacy.curseforge.com/minecraft/mc-mods/gadomancy)
 
 ## Initial Discovery
+
 To begin; this vulnerability is well known in the Java community, and has been fixed before in other mods, such as RebornCore. This exploit is generally referred to as a deserialization attack/gadget chain, and there are many exploited cases, however none have been of this scale in the Minecraft community.
 
 The first hints of this exploit in this specific list of mods go back all the way to March 2022, when [this](https://github.com/bdew-minecraft/bdlib/issues/57) issue was posted on BDLib's GitHub hinting at a vulnerability in `ObjectInputStream`. The GTNH team promptly merged a fix into their fork.
@@ -47,7 +48,7 @@ After this, the issue became quiet for a while, until [MineYourMind](https://min
 On July 9, 2023, a [Forge forum post](https://forums.minecraftforge.net/topic/124918-potential-rce-zero-day-exploit-targeting-forge-142352860-1122/) was made about a RCE happening live on a server, managing to compromise the server and send the discord credentials of clients, indicating the spread to clients. The issue was nailed down to 3 mods; EnderCore, BDLib, and LogisticsPipes. However, this post did not go mainstream, and most were not aware.
 
 On July 24, 2023, MineYourMind suddenly announced they had "fixed" the bug and will be working with the devs to make patches. No other info was published.
-![Message in MineYourMind's announcement channel alerting people of the exploit.](https://cdn.discordapp.com/attachments/1133934284034556017/1133935398612115456/image.png)
+![Message in MineYourMind's announcement channel alerting people of the exploit.](/reports/bleeding-pipe-1.png)
 
 After this series of announcements, the vulnerability was promptly patched in the rest of GTNH's forks, but it is still present in most servers with these mods, as well as the original versions of these mods.
 
@@ -63,7 +64,7 @@ As we do not know the contents of the payload being sent to the vulnerable serve
 
 ### As a server admin
 
-As a server admin, we recommend checking for suspicious files in your server and updating/removing the mods affected by this vulnerabiilty. 
+As a server admin, we recommend checking for suspicious files in your server and updating/removing the mods affected by this vulnerabiilty.
 
 Malware targeting servers tends to infect other mods on the system once they get a target, so we recommend running something like [jSus](https://github.com/NeRdTheNed/jSus) or [jNeedle](https://github.com/KosmX/jneedle) on all installed mods.
 
@@ -77,7 +78,7 @@ As a player, we recommend checking for suspicious files, doing an antivirus scan
 
 If you have EnderIO, BDlib, or LogisticsPipes, update to the latest versions on CurseForge.
 
-To mitigate all mods generally, you can install our mod [PipeBlocker](https://modrinth.com/mod/pipeblocker) on both forge servers and clients. We also recommend updating LogisticsPipes and all of your other mods to the newest versions available. Note that pre-made modpacks may become unstable or otherwise break by updating all mods. 
+To mitigate all mods generally, you can install our mod [PipeBlocker](https://modrinth.com/mod/pipeblocker) on both forge servers and clients. We also recommend updating LogisticsPipes and all of your other mods to the newest versions available. Note that pre-made modpacks may become unstable or otherwise break by updating all mods.
 
 If you are a mod developer and use `ObjectInputStream`, unless you know what you are doing, you are recommended to switch to another safe serializer or make your own.
 
